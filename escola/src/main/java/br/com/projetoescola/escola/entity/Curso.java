@@ -21,7 +21,7 @@ public class Curso {
     private String siglaCurso;
 
     @Column (nullable = false)
-    private Integer CHCurso;
+    private Integer chCurso;
 
     @Column (nullable = false, length = 20)
     private String periodoCurso;
@@ -31,11 +31,11 @@ public class Curso {
     public Curso() {
     }
 
-    public Curso(Integer idCurso, String nomeCurso, String siglaCurso, Integer cHCurso, String periodoCurso) {
+    public Curso(Integer idCurso, String nomeCurso, String siglaCurso, Integer chCurso, String periodoCurso) {
         this.idCurso = idCurso;
         this.nomeCurso = nomeCurso;
         this.siglaCurso = siglaCurso;
-        CHCurso = cHCurso;
+        this.chCurso = chCurso;
         this.periodoCurso = periodoCurso;
     }
 
@@ -66,11 +66,11 @@ public class Curso {
     }
 
     public Integer getCHCurso() {
-        return CHCurso;
+        return chCurso;
     }
 
     public void setCHCurso(Integer cHCurso) {
-        CHCurso = cHCurso;
+        chCurso = cHCurso;
     }
 
     public String getPeriodoCurso() {

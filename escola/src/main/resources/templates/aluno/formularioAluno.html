@@ -10,20 +10,21 @@
     <h1>Cadastro de Alunos</h1>
     <form th:action="@{/alunos/salvar}" method="post" th:object="${aluno}">
          <input type="hidden" name="idAluno" th:field="*{idAluno}" readonly />
-         <br />
+         
+
          <label for="nomeAluno">Nome:</label>
          <input type="text" name="nomeAluno" th:field="*{nomeAluno}" />
          <br />
-         <label for="nomeAluno">Telefone:</label>
+         <label for="telefoneAluno">Telefone:</label>
          <input type="text" name="telefoneAluno" th:field="*{telefoneAluno}" />
          <br />
-         <label for="nomeAluno">Endereço:</label>
+         <label for="enderecoAluno">Endereço:</label>
          <input type="text" name="enderecoAluno" th:field="*{enderecoAluno}" />
          <br />
-         <label for="nomeAluno">RM:</label>
+         <label for="rmAluno">RM:</label>
          <input type="text" name="rmAluno" th:field="*{rmAluno}" />
          <br />
-         <label for="nomeAluno">CPF:</label>
+         <label for="cpfAluno">CPF:</label>
          <input type="text" name="cpfAluno" th:field="*{cpfAluno}" />
          <br />
          <button type="submit">Salvar</button>
