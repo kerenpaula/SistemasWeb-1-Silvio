@@ -14,7 +14,7 @@ import br.com.projetoescola.escola.entity.Curso;
 import br.com.projetoescola.escola.service.CursoService;
 
 @Controller
-@RequestMapping("/curso")
+@RequestMapping("/cursos")
 public class CursoController {
     
     // Injeção de dependencia da service de cursos
@@ -25,20 +25,20 @@ public class CursoController {
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Curso curso){
         cursoService.save(curso);
-        return "redirect:/curso/listar";
+        return "redirect:/cursos/listar";
     }
     // Método para listar todos os cursos
     @GetMapping("/listar")
         public String listar(Model model){
             List<Curso> cursos = cursoService.findAll();
-            model.addAttribute("curso" , cursos);
-            return "aluno/listasCurso";
+            model.addAttribute("cursos" , cursos);
+            return "curso/listasCurso";
         }
     
-    // Método para abrir o formulário de alunos
+    // Método para abrir o formulário de cursos
     @GetMapping("/criar")
     public String criarForm(Model model){
         model.addAttribute("curso", new Curso());
-        return "aluno/formularioCurso";
+        return "curso/formularioCurso";
     }
 }

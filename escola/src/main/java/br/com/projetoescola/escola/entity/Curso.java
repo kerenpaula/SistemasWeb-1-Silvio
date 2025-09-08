@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-
 public class Curso {
     
     @Id
@@ -39,8 +38,6 @@ public class Curso {
         this.periodoCurso = periodoCurso;
     }
 
-    // MÉTODOS SETERS E GETERS
-
     public Integer getIdCurso() {
         return idCurso;
     }
@@ -65,12 +62,12 @@ public class Curso {
         this.siglaCurso = siglaCurso;
     }
 
-    public Integer getCHCurso() {
+    public Integer getChCurso() {
         return chCurso;
     }
 
-    public void setCHCurso(Integer cHCurso) {
-        chCurso = cHCurso;
+    public void setChCurso(Integer chCurso) {
+        this.chCurso = chCurso;
     }
 
     public String getPeriodoCurso() {
@@ -81,5 +78,8 @@ public class Curso {
         this.periodoCurso = periodoCurso;
     }
 
+    // MÉTODOS SETERS E GETERS
+
+   
     
 }
