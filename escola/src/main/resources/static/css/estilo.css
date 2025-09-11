@@ -130,4 +130,8 @@ input:focus {
   td a:hover {
     color: #1d6fa5;
   }
+
+  i{
+    margin-right: 8px;
+  }
   
