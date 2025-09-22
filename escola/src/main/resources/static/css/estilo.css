@@ -134,4 +134,14 @@ input:focus {
   i{
     margin-right: 8px;
   }
+
+  .voltar Link{
+    text-decoration: none;
+    color: #1d6fa5;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 5px;
+  }
+    
+
   

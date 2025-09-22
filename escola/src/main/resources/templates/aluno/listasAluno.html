@@ -36,8 +36,8 @@
             <td th:text="${aluno.rmAluno}"></td>
             <td th:text="${aluno.cpfAluno}"></td>
             <td>
-                <a th:href="@{/alunos/editar{id}(id=${aluno.idAluno})}"><i class="fas fa-edit"></i>Editar</a>
-                <a th:href="@{/alunos/editar{id}(id=${aluno.idAluno})}"><i class="fas fa-trash"></i>Excluir</a>
+                <a th:href="@{/alunos/editar/{id}(id=${aluno.idAluno})}"><i class="fas fa-edit"></i>Editar</a>
+                <a th:href="@{/alunos/excluir/{id}(id=${aluno.idAluno})}"><i class="fas fa-trash"></i>Excluir</a>
             </td>
             
 
@@ -45,6 +45,8 @@
         </tr>
 
     </table>
+
+    <a href="/escola">Voltar</a>
     
 </body>
 </html>
