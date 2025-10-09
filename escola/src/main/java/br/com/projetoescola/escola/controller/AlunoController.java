@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.projetoescola.escola.entity.Aluno;
+import br.com.projetoescola.escola.entity.Curso;
 import br.com.projetoescola.escola.service.AlunoService;
-import org.springframework.web.bind.annotation.RequestParam;
+import br.com.projetoescola.escola.service.CursoService;
+
 
 
 @Controller
@@ -23,6 +25,9 @@ public class AlunoController {
     // Injeção de dependencia da service de alunos
     @Autowired
     private AlunoService alunoService;
+
+    @Autowired
+    private CursoService cursoService;
 
     // Método para salvar aluno
     @PostMapping("/salvar")
@@ -45,13 +50,16 @@ public class AlunoController {
         return "aluno/formularioAluno";
     }
 
-    // Método para abrir o formulário de edição de alunos
+    // Método par abrir o formulário de edição de alunos
     @GetMapping("/editar/{id}")
-    public String editarForm(@PathVariable ("id") Integer id, Model model){
+    public String editarForm(@PathVariable ("id") Integer id, Model model) {
         Aluno aluno = alunoService.findById(id);
         model.addAttribute("aluno", aluno);
+        List<Curso> cursos = cursoService.findAll();
+        model.addAttribute("cursos", cursos);
         return "aluno/formularioAluno";
     }
+
 
     // Método para excluir um aluno
     @GetMapping("/excluir/{id}")
@@ -59,6 +67,7 @@ public class AlunoController {
         alunoService.deleteById(id);
         return "redirect:/alunos/listar";
     }
+
     
     
    
