@@ -11,7 +11,7 @@
   </head>
   <body>
     <h1 style="text-align: center">Lista de Cidades</h1>
-    <h3 style="text-align: center"><a href="/cursos/criar">Cadastrar</a></h3>
+    <h3 style="text-align: center"><a href="/cidade/nova">Cadastrar</a></h3>
 
     <!-- Tabela para exibir os alunos cadastrados-->
 
@@ -22,25 +22,32 @@
         <td colspan="7" style="text-align: center">Lista de Cursos</td>
       </tr>
 
-      <tr>
-        <th>#</th>
-        <th>Nome</th>
-        <th>Sigla</th>
-        <th>Carga Horária</th>
-        <th>Período</th>
-        <th colspan="2">Ações</th>
-      </tr>
-      <tr th:each="curso: ${cursos}">
-        <td th:text="${curso.idCurso}"></td>
-        <td th:text="${curso.nomeCurso}"></td>
-        <td th:text="${curso.siglaCurso}"></td>
-        <td th:text="${curso.chCurso}"></td>
-        <td th:text="${curso.periodoCurso}"></td>
+      <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cidade</th>
+            <th>UF</th>
+            <th>CEP</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="cidade : ${cidades}">
+            <td th:text="${cidade.idCidade}"></td>
+            <td th:text="${cidade.nomeCidade}"></td>
+            <td th:text="${cidade.uf}"></td>
+            <td th:text="${cidade.cep}"></td>
+            <td>
+                <a th:href="@{/cidades/editar/{id}(id=${cidade.idCidade})}">Editar</a>
+                <a th:href="@{/cidades/excluir/{id}(id=${cidade.idCidade})}">Excluir</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-        <td>
-          <a th:href="@{/cursos/editar/{id}(id=${curso.idCurso})}"><i class="fas fa-edit"></i>Editar</a>
-          <a th:href="@{/cursos/excluir/{id}(id=${curso.idCurso})}"><i class="fas fa-trash"></i>Excluir</a>
-        </td>
+<a th:href="@{/cidades/nova}">Nova Cidade</a>
+
       </tr>
     </table>
 

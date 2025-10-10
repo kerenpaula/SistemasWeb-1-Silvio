@@ -24,6 +24,12 @@ public class Cidade {
     @Column(nullable = false, length = 60)
     private String nomeCidade;
 
+    @Column(length = 2)
+    private String uf;
+
+    @Column(length = 9)
+    private String cep;
+
 
 
 

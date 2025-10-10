@@ -9,27 +9,19 @@
   </head>
     
   <body>
-    <h1>Cadastro de Cursos</h1>
-    <form th:action="@{/cursos/salvar}" method="post" th:object="${curso}">
+    <form th:action="@{/cidades/salvar}" th:object="${cidade}" method="post">
+    <label>Nome da Cidade:</label>
+    <input type="text" th:field="*{nomeCidade}" required />
 
-      <input type="hidden" name="idCurso" th:field="*{idCurso}" readonly />
+    <label>UF:</label>
+    <input type="text" th:field="*{uf}" maxlength="2" />
 
-      <label for="nomeCurso">Nome:</label>
-      <input type="text" name="nomeCurso" th:field="*{nomeCurso}" />
+    <label>CEP:</label>
+    <input type="text" th:field="*{cep}" maxlength="9" />
 
-      <br />
-      <label for="siglacurso">Sigla:</label>
-      <input type="text" name="siglaCurso" th:field="*{siglaCurso}" />
-      <br />
-      <label for="chCurso">Carga Horária:</label>
-      <input type="text" name="chCurso" th:field="*{chCurso}" />
-      <br />
-      <label for="periodoCurso">Período:</label>
-      <input type="text" name="" th:field="*{periodoCurso}" />
-      <br />
-      <button type="submit">Salvar</button>
-    </form>
+    <button type="submit">Salvar</button>
+</form>
 
-    <a href="/escola">Voltar</a>
+  <a href="/escola">Voltar</a>
   </body>
 </html>
