@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulário Aluno</title>
-    <link rel="stylesheet" href="/css/estilo.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/estilo.css" />
+  </head>
+  <body>
     <h1>Cadastro de Alunos</h1>
     <form th:action="@{/alunos/salvar}" method="post" th:object="${aluno}">
-         <input type="hidden" name="idAluno" th:field="*{idAluno}" readonly />
-         
+      <input type="hidden" name="idAluno" th:field="*{idAluno}" readonly />
 
-         <label for="nomeAluno">Nome:</label>
-         <input type="text" name="nomeAluno" th:field="*{nomeAluno}" />
-         <br />
-         <label for="telefoneAluno">Telefone:</label>
-         <input type="text" name="telefoneAluno" th:field="*{telefoneAluno}" />
-         <br />
-         <label for="enderecoAluno">Endereço:</label>
-         <input type="text" name="enderecoAluno" th:field="*{enderecoAluno}" />
-         <br />
-         <label for="rmAluno">RM:</label>
-         <input type="text" name="rmAluno" th:field="*{rmAluno}" />
-         <br />
-         <label for="cpfAluno">CPF:</label>
-         <input type="text" name="cpfAluno" th:field="*{cpfAluno}" />
-        <br />
-        <label for="idCurso">Curso</label>
-        <select th:field="*{curso.idCurso}">
-            <option th:each="curso : ${cursos}"
-                    th:text="${curso.nomeCurso}"
-                    th:value="${curso.idCurso}"></option>
-        </select>
-         <button type="submit">Salvar</button>
-
-
+      <label for="nomeAluno">Nome:</label>
+      <input type="text" name="nomeAluno" th:field="*{nomeAluno}" />
+      <br />
+      <label for="telefoneAluno">Telefone:</label>
+      <input type="text" name="telefoneAluno" th:field="*{telefoneAluno}" />
+      <br />
+      <label for="enderecoAluno">Endereço:</label>
+      <input type="text" name="enderecoAluno" th:field="*{enderecoAluno}" />
+      <br />
+      <label for="rmAluno">RM:</label>
+      <input type="text" name="rmAluno" th:field="*{rmAluno}" />
+      <br />
+      <label for="cpfAluno">CPF:</label>
+      <input type="text" name="cpfAluno" th:field="*{cpfAluno}" />
+      <br />
+      <label for="idCurso">Curso</label>
+      <select th:field="*{curso.idCurso}">
+        <option
+          th:each="curso : ${cursos}"
+          th:text="${curso.nomeCurso}"
+          th:value="${curso.idCurso}"
+        ></option>
+      </select>
+      <br />
+      <label for="idCidade">Cidade</label>
+      <select th:field="*{cidade.idCidade}">
+        <option
+          th:each="cidade : ${cidades}"
+          th:text="${cidade.nomeCidade}"
+          th:value="${cidade.idCidade}"
+        ></option>
+      </select>
+      <button type="submit">Salvar</button>
     </form>
 
     <a href="/escola">Voltar</a>
-</body>
+  </body>
 </html>

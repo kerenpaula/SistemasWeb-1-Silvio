@@ -13,9 +13,12 @@ import br.com.projetoescola.escola.entity.Cidade;
 
 @Service
 public class CidadeService {
-    // Ingeção de dependencia do repositório de alunos
+
+
     @Autowired
     private CidadeRepository cidadeRepository;
+
+    
     public List <Cidade> listarTodas(){
         return cidadeRepository.findAll();
     }
