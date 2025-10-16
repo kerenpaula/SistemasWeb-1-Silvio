@@ -25,21 +25,21 @@ public class CidadeController {
      @PostMapping("/salvar")
      public String salvar(@ModelAttribute Cidade cidade){
         cidadeService.salvar(cidade);
-         return "redirect:/cursos/listar";
+         return "redirect:/cidades/listar";
      }
      // Método para listar todos os cursos
      @GetMapping("/listar")
          public String listarTodas(Model model){
-             List<Cidade> cidades = cidadeService.listarTodas();
+             List<Cidade> cidades = cidadeService.findAll();
              model.addAttribute("cidades" , cidades);
-             return "curso/listasCurso";
+             return "cidades/listasCidade";
          }
      
      // Método para abrir o formulário de cursos
      @GetMapping("/criar")
      public String criarForm(Model model){
          model.addAttribute("cidade", new Cidade());
-         return "curso/formularioCurso";
+         return "cidade/formularioCidade";
      }
  
      // Método para abrir o formulário de edição de alunos
@@ -47,14 +47,14 @@ public class CidadeController {
      public String editarForm(@PathVariable ("id") Integer id, Model model){
         Cidade cidade = cidadeService.buscarPorId(id);
          model.addAttribute("cidade", cidade);
-         return "curso/formularioCurso";
+         return "cidade/formularioCidade";
      }
  
      // Método para excluir um curso
      @GetMapping("/excluir/{id}")
      public String excluir(@PathVariable("id") Integer id){
         cidadeService.excluir(id);
-         return "redirect:/cursos/listar";
+         return "redirect:/cidades/listar";
      }
 
  

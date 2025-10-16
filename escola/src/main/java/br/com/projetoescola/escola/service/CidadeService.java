@@ -35,6 +35,11 @@ public class CidadeService {
         cidadeRepository.deleteById(id);
     }
 
+    public List<Cidade> findAll() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+    }
+
 
 }
 
