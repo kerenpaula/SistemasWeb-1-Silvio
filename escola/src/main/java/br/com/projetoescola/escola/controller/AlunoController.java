@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.projetoescola.escola.dto.AlunoTelefone;
 import br.com.projetoescola.escola.entity.Aluno;
 import br.com.projetoescola.escola.entity.Curso;
 import br.com.projetoescola.escola.service.AlunoService;
@@ -66,6 +67,15 @@ public class AlunoController {
     public String excluir(@PathVariable("id") Integer id){
         alunoService.deleteById(id);
         return "redirect:/alunos/listar";
+    }
+
+     // Método para listar nome e telefone de alunos (DTO)
+    @GetMapping("/listar-nome-telefone")
+    public String listarNomeTelefone(Model model) {
+        List <AlunoTelefone> alunos = alunoService.buscarNomeTelefone();
+        model.addAttribute("alunos", alunos);
+        return "aluno/listaNomeTelefone";
+        
     }
 
     
