@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.projetoescola.escola.dto.AlunoCurso;
 import br.com.projetoescola.escola.dto.AlunoTelefone;
 import br.com.projetoescola.escola.entity.Aluno;
 import br.com.projetoescola.escola.entity.Curso;
@@ -75,6 +76,15 @@ public class AlunoController {
         List <AlunoTelefone> alunos = alunoService.buscarNomeTelefone();
         model.addAttribute("alunos", alunos);
         return "aluno/listaNomeTelefone";
+        
+    }
+
+    // Método para listar nome e curso de alunos (DTO)
+    @GetMapping("/listar-nome-curso")
+    public String listarNomeCurso(Model model) {
+        List <AlunoCurso> alunos = alunoService.buscarNomeCurso();
+        model.addAttribute("alunos", alunos);
+        return "aluno/listaNomeCurso";
         
     }
 

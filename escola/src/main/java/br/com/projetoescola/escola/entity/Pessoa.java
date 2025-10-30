@@ -5,15 +5,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idPessoa;
 
-    @Column(nullable= false, length= 40)
+    @Column(nullable = false, length = 40)
     private String nomePessoa;
 
     public Pessoa() {
@@ -39,6 +42,5 @@ public class Pessoa {
     public void setNomePessoa(String nomePessoa) {
         this.nomePessoa = nomePessoa;
     }
-    
 
 }
