@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.projetoescola.escola.dto.AlunoCurso;
 import br.com.projetoescola.escola.dto.AlunoTelefone;
 import br.com.projetoescola.escola.entity.Aluno;
+import br.com.projetoescola.escola.entity.Cidade;
 import br.com.projetoescola.escola.entity.Curso;
 import br.com.projetoescola.escola.service.AlunoService;
+import br.com.projetoescola.escola.service.CidadeService;
 import br.com.projetoescola.escola.service.CursoService;
 
 
@@ -30,6 +32,9 @@ public class AlunoController {
 
     @Autowired
     private CursoService cursoService;
+
+    @Autowired
+    private CidadeService cidadeService;
 
     // Método para salvar aluno
     @PostMapping("/salvar")
@@ -49,6 +54,13 @@ public class AlunoController {
     @GetMapping("/criar")
     public String criarForm(Model model){
         model.addAttribute("aluno", new Aluno());
+       
+        List<Curso> cursos = cursoService.findAll();
+        model.addAttribute("cursos", cursos);
+
+        List<Cidade> cidades = cidadeService.findAll();
+        model.addAttribute("cidades", cidades);
+        
         return "aluno/formularioAluno";
     }
 
@@ -72,7 +84,7 @@ public class AlunoController {
 
      // Método para listar nome e telefone de alunos (DTO)
     @GetMapping("/listar-nome-telefone")
-    public String listarNomeTelefone(Model model) {
+    public String buscarNomeTelefone(Model model) {
         List <AlunoTelefone> alunos = alunoService.buscarNomeTelefone();
         model.addAttribute("alunos", alunos);
         return "aluno/listaNomeTelefone";
@@ -81,7 +93,7 @@ public class AlunoController {
 
     // Método para listar nome e curso de alunos (DTO)
     @GetMapping("/listar-nome-curso")
-    public String listarNomeCurso(Model model) {
+    public String buscarNomeCurso(Model model) {
         List <AlunoCurso> alunos = alunoService.buscarNomeCurso();
         model.addAttribute("alunos", alunos);
         return "aluno/listaNomeCurso";

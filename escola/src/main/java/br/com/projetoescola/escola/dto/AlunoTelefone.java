@@ -2,24 +2,25 @@ package br.com.projetoescola.escola.dto;
 
 public class AlunoTelefone {
 
-    private String nomeAluno;
+    private String nomePessoa;
     private String telefoneAluno;
     
     public AlunoTelefone() {
     }
 
-    public AlunoTelefone(String nomeAluno, String telefoneAluno) {
-        this.nomeAluno = nomeAluno;
+    public AlunoTelefone(String nomePessoa, String telefoneAluno) {
+        this.nomePessoa = nomePessoa;
         this.telefoneAluno = telefoneAluno;
     }
 
-    public String getNomeAluno() {
-        return nomeAluno;
+    public String getNomePessoa() {
+        return nomePessoa;
     }
 
     public String getTelefoneAluno() {
         return telefoneAluno;
     }
+
 
     
     

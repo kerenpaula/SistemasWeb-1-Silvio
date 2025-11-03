@@ -12,10 +12,11 @@ import br.com.projetoescola.escola.entity.Aluno;
 public interface AlunoRepository extends JpaRepository<Aluno, Integer> {
 
     // Listar nomes e telefones de alunos
-    @Query("SELECT new br.com.projetoescola.escola.dto.AlunoTelefone(a.pessoa.nomePessoa, a.telefoneAluno) FROM Aluno a") List <AlunoTelefone> buscarNomeTelefone();
+    @Query("SELECT new br.com.projetoescola.escola.dto.AlunoTelefone(a.nomePessoa, a.telefoneAluno) FROM Aluno a") List <AlunoTelefone> buscarNomeTelefone();
 
-    // Listar nomes e curso de alunos
-    @Query("SELECT new br.com.projetoescola.escola.dto.AlunoCurso(a.pessoa.nomePessoa, a.curso.nomeCurso) FROM Aluno a") List <AlunoCurso> buscarNomeCurso();
+    //Listar nomes e cursos dos alunos
+    @Query("SELECT new br.com.projetoescola.escola.dto.AlunoCurso(p.nomePessoa, a.curso.nomeCurso) FROM Aluno a, Pessoa p where p.idPessoa = a.idPessoa") List<AlunoCurso> buscarNomeCurso();
+ 
     
     
 }

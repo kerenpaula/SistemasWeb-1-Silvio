@@ -11,7 +11,7 @@
   </head>
   <body>
     <h1 style="text-align: center">Lista de Cidades</h1>
-    <h3 style="text-align: center"><a href="/cidades/nova">Cadastrar</a></h3>
+    <h3 style="text-align: center"><a href="/cidades/criar">Cadastrar</a></h3>
 
 
     <table
@@ -28,7 +28,7 @@
             <th>Cidade</th>
             <th>UF</th>
             <th>CEP</th>
-            <th>Ações</th>
+            <th colspan="2">Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -44,11 +44,6 @@
         </tr>
     </tbody>
 </table>
-
-<a th:href="@{/cidades/nova}">Nova Cidade</a>
-
-      </tr>
-    </table>
 
     <a href="/escola">Voltar</a>
   </body>

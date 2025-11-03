@@ -1,7 +1,5 @@
 package br.com.projetoescola.escola.service;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,38 +7,27 @@ import org.springframework.stereotype.Service;
 import br.com.projetoescola.escola.repository.CidadeRepository;
 import br.com.projetoescola.escola.entity.Cidade;
 
-
-
 @Service
 public class CidadeService {
-
 
     @Autowired
     private CidadeRepository cidadeRepository;
 
-    
-    public List <Cidade> listarTodas(){
+    public List<Cidade> findAll() {
         return cidadeRepository.findAll();
     }
 
-    public Cidade buscarPorId(Integer id){
+    public Cidade buscarPorId(Integer id) {
         return cidadeRepository.findById(id).orElse(null);
     }
 
-    public Cidade salvar(Cidade cidade){
+    public Cidade save(Cidade cidade) {
         return cidadeRepository.save(cidade);
     }
 
-    public void excluir(Integer id){
+    public void deleteById(Integer id) {
         cidadeRepository.deleteById(id);
-    }
-
-    public List<Cidade> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
 
 }
-
-

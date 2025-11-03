@@ -18,7 +18,7 @@ import lombok.Setter;
 public class Cidade {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer idCidade;
 
     @Column(nullable = false, length = 60)
@@ -29,11 +29,5 @@ public class Cidade {
 
     @Column(length = 9)
     private String cep;
-
-
-
-
-
-
 
 }

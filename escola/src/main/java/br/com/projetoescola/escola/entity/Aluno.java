@@ -41,6 +41,5 @@ private Curso curso;
 @JoinColumn(name = "idCidade_fk")
 private Cidade cidade;
 
-
     
 }
