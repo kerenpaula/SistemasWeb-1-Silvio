@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/estilo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <h1 style="text-align: center">Lista de Usuarios</h1>
+
+    <!-- Tabela para exibir os usuarios cadastrados-->
+
+    <table
+      style="margin: 0 auto; border: 1px solid black; border-collapse: collapse"
+    >
+      <tr>
+        <td colspan="7" style="text-align: center">Lista de usuários</td>
+        <h3 style="text-align: center">
+          <a href="/usuarios/criar">Cadastrar</a>
+        </h3>
+      </tr>
+
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Login</th>
+        <th>Senha</th>
+        <th></th>
+        <th colspan="2">Ações</th>
+      </tr>
+      <tr th:each="usuario : ${usuarios}">
+        <td th:text="${usuario.idUsuario}"></td>
+        <td th:text="${usuario.nomeUsuario}"></td>
+        <td th:text="${usuario.cpfUsuario}"></td>
+        <td th:text="${usuario.login}"></td>
+        <td th:text="${usuario.senha}"></td>
+        <td></td>
+
+        <td>
+          <a th:href="@{/usuarios/editar/{id}(id=${usuario.idUsuario})}"
+            ><i class="fas fa-edit"></i>Editar</a
+          >
+          <a th:href="@{/usuarios/excluir/{id}(id=${usuario.idUsuario})}"
+            ><i class="fas fa-trash"></i>Excluir</a
+          >
+        </td>
+      </tr>
+    </table>
+
+    <a href="/escola">Voltar</a>
+  </body>
+</html>
