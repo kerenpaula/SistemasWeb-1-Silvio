@@ -23,14 +23,14 @@ public class UserDetailsImpl implements UserDetails {
     }
  
     @Override
-    public String getPassword() {
-        return usuario.getCpfUsuario();
-    }
- 
-    @Override
-    public String getUsername() {
-        return usuario.getCpfUsuario();
-    }
+public String getPassword() {
+    return usuario.getSenha(); // senha criptografada
+}
+
+@Override
+public String getUsername() {
+    return usuario.getLogin(); // login do usuário
+}
  
     @Override
     public boolean isAccountNonExpired() {

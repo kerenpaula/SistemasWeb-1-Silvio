@@ -44,7 +44,8 @@ label{
 }
 
 input[type="text"],
-input[type="hidden"] {
+input[type="hidden"],
+input[type="password"] {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;

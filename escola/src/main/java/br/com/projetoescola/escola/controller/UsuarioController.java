@@ -28,6 +28,7 @@ public class UsuarioController {
     //Salvar
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Usuario usuario) {
+        
         usuarioService.save(usuario);
         return "/login";
     }

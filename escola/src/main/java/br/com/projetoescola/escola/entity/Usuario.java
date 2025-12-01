@@ -26,7 +26,7 @@ public class Usuario {
     private String login;
 
     @Column(nullable = false, length = 20)
-    private String role;
+    private String role = "ROLE_USER";
 
     public Usuario(){
         
